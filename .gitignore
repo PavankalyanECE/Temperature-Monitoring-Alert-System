@@ -1,0 +1,21 @@
+# Arduino build files
+*.elf
+*.hex
+*.eep
+*.bin
+*.map
+
+# Proteus temporary files
+*.pwi
+*.pdsbak
+
+# EasyEDA temporary files
+*.bak
+~*
+
+# VS Code
+.vscode/
+
+# Operating system files
+Thumbs.db
+.DS_Store
