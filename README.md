@@ -1,8 +1,30 @@
 # 🌡️ Temperature Monitoring & Alert System
 
-An embedded temperature monitoring and alert system designed to continuously measure temperature using a **DS18B20 digital temperature sensor** and indicate the temperature condition using **Red, Yellow, and Blue LEDs** along with an audible buzzer alert.
+An embedded temperature monitoring and alert system designed to continuously measure temperature using a **DS18B20 digital temperature sensor** and indicate the temperature condition using **Red, Yellow, and Blue LEDs**, along with an audible buzzer alert.
 
-The system is built around an **Arduino Nano** and includes a custom-designed **PCB, 3D PCB visualization, circuit schematic, voltage regulation stage, and hardware prototype**.
+The system is built around an **Arduino Nano** and includes a custom-designed PCB, circuit schematic, 3D PCB visualization, and working hardware prototype.
+
+---
+
+## 📸 Hardware Prototype
+
+<div align="center">
+
+<table>
+<tr>
+<td align="center">
+<img src="Prototype/Hardware-Prototype-view1.jpg" width="280">
+</td>
+<td align="center">
+<img src="Prototype/Hardware-Prototype-view2.jpg" width="280">
+</td>
+<td align="center">
+<img src="Prototype/Hardware-Prototype-view3.jpg" width="280">
+</td>
+</tr>
+</table>
+
+</div>
 
 ---
 
@@ -16,36 +38,22 @@ The **Temperature Monitoring & Alert System** monitors the surrounding temperatu
 | **25°C – 35°C** | 🌡️ Medium | 🟡 Yellow LED          |
 | **Above 35°C**  | 🔥 Hot     | 🔴 Red LED + 🔊 Buzzer |
 
-This project demonstrates the practical implementation of:
-
-* Embedded systems
-* Digital temperature sensing
-* Arduino-based control
-* LED status indication
-* Audible alert generation
-* DC voltage regulation
-* PCB design
-* PCB layout and routing
-* 3D PCB visualization
-* Hardware prototyping
-
 ---
 
 ## 🎯 Objectives
 
-* Measure temperature accurately using the **DS18B20 sensor**.
-* Process the temperature data using an **Arduino Nano**.
-* Provide clear visual indication through three LEDs.
-* Generate an audible warning during high-temperature conditions.
-* Convert the input DC supply to a regulated **5V supply** for the electronics.
-* Design and manufacture a custom PCB.
-* Develop a compact and reliable embedded hardware prototype.
+* Measure temperature using the **DS18B20 digital temperature sensor**.
+* Process temperature data using an **Arduino Nano**.
+* Provide visual temperature indication using three LEDs.
+* Generate an audible alert during high-temperature conditions.
+* Convert the input supply into a regulated **5V DC supply**.
+* Design and develop a custom PCB.
+* Verify the PCB using 2D and 3D visualization.
+* Build and test a working hardware prototype.
 
 ---
 
 ## ⚙️ System Working
-
-The system operates according to the following sequence:
 
 ```text
         Temperature
@@ -59,7 +67,7 @@ The system operates according to the following sequence:
              │
              ▼
       ┌─────────────┐
-      │   Arduino   │
+      │  Arduino    │
       │    Nano     │
       └──────┬──────┘
              │
@@ -73,165 +81,106 @@ The system operates according to the following sequence:
                   BUZZER
 ```
 
-The DS18B20 continuously measures the temperature and sends the digital temperature data to the Arduino Nano.
-
-The Arduino compares the measured value with predefined temperature thresholds and activates the appropriate indication.
-
-### Temperature Logic
-
-```text
-Temperature < 25°C
-        ↓
-    BLUE LED
-     COOL
-
-
-25°C ≤ Temperature ≤ 35°C
-        ↓
-   YELLOW LED
-     MEDIUM
-
-
-Temperature > 35°C
-        ↓
-     RED LED
-      + BUZZER
-       HOT
-```
-
 ---
 
-## 🔩 Hardware Components
+# 🔌 Circuit & Power Supply
 
-| Component                             |    Quantity | Purpose                       |
-| ------------------------------------- | ----------: | ----------------------------- |
-| Arduino Nano                          |           1 | Main microcontroller          |
-| DS18B20                               |           1 | Digital temperature sensor    |
-| Red LED                               |           1 | High-temperature indication   |
-| Yellow LED                            |           1 | Medium-temperature indication |
-| Blue LED                              |           1 | Low-temperature indication    |
-| Buzzer                                |           1 | High-temperature alert        |
-| 5V Voltage Regulator / Buck Converter |           1 | Provides regulated 5V supply  |
-| Resistors                             | As required | LED current limiting          |
-| PCB                                   |           1 | Final hardware implementation |
-| Connecting wires / terminals          | As required | Electrical connections        |
+## 5V Voltage Regulator
 
----
+<div align="center">
 
-## 🔌 Power Supply
+<img src="Hardware/Circuit/5V-Voltage-Regulator.png" width="650">
 
-The system uses a DC input supply which is regulated to **5V** for the Arduino and other electronic components.
+</div>
 
-### Power Conversion
+## Circuit Schematic
 
-```text
-DC INPUT
-   │
-   ▼
-┌─────────────────┐
-│  Voltage        │
-│  Regulator /    │
-│  Buck Converter │
-└────────┬────────┘
-         │
-         ▼
-       +5V DC
-         │
-    ┌────┴─────┐
-    ▼          ▼
- Arduino     Sensors &
-   Nano      Indicators
-```
+<div align="center">
 
-### 5V Voltage Regulator
+<img src="Hardware/Circuit/circuit-Schematic.png" width="750">
 
-![5V Voltage Regulator](Hardware/Circuit/5V-Voltage-Regulator.png)
-
----
-
-## 📐 Circuit Schematic
-
-The complete circuit schematic shows the electrical connections between the Arduino Nano, DS18B20 temperature sensor, LEDs, buzzer, and regulated power supply.
-
-![Circuit Schematic](Hardware/Circuit/circuit-Schematic.png)
+</div>
 
 ---
 
 # 🖥️ PCB Design
 
-A custom PCB was designed for the project to provide a compact and organized implementation of the circuit.
+A custom PCB was designed to provide a compact and organized implementation of the complete temperature monitoring circuit.
 
-The PCB design process includes:
+The PCB design includes:
 
-1. Circuit schematic
-2. Component placement
-3. PCB routing
-4. Design verification
-5. 2D PCB visualization
-6. Top and bottom copper layer generation
-7. 3D PCB visualization
+* Component placement
+* PCB routing
+* Board outline
+* Top copper layer
+* Bottom copper layer
+* 2D PCB visualization
+* 3D PCB visualization
 
----
+## 📐 PCB Layout Design
 
-## 🧩 PCB Layout Design
+<div align="center">
 
-![PCB Layout Design](Hardware/PCB/PCB-Layout-Design.png)
+<img src="Hardware/PCB/PCB-Layout-Design.png" width="750">
 
----
+</div>
 
 ## 🗺️ PCB 2D View
 
-![PCB 2D View](Hardware/PCB/PCB-2D-View.png)
+<div align="center">
 
----
+<img src="Hardware/PCB/PCB-2D-View.png" width="750">
+
+</div>
 
 ## 🔝 PCB Top Layer
 
-The top copper layer contains the routed connections and component-side PCB layout.
+<div align="center">
 
-[📄 View PCB Top Layer](Hardware/PCB/Top-Layer.pdf)
+<a href="Hardware/PCB/Top-Layer.pdf">
+<img src="Hardware/PCB/PCB-Layout-Design.png" width="650">
+</a>
 
----
+<p><b><a href="Hardware/PCB/Top-Layer.pdf">View Top-Layer PDF</a></b></p>
+
+</div>
 
 ## 🔻 PCB Bottom Layer
 
-The bottom copper layer contains the corresponding PCB routing and connections.
+<div align="center">
 
-[📄 View PCB Bottom Layer](Hardware/PCB/Bottom-Layer.pdf)
+<a href="Hardware/PCB/Bottom-Layer.pdf">
+<img src="Hardware/PCB/PCB-Layout-Design.png" width="650">
+</a>
+
+<p><b><a href="Hardware/PCB/Bottom-Layer.pdf">View Bottom-Layer PDF</a></b></p>
+
+</div>
 
 ---
 
 # 🧊 3D PCB Visualization
 
-The PCB was also visualized in 3D to verify the physical arrangement of components and the overall board appearance before fabrication.
+The PCB was visualized in 3D to verify the physical component arrangement, board structure, and overall design before fabrication.
 
-## Front View
+<div align="center">
 
-![3D PCB Front View](Hardware/3D/3D-PCB-Front-View.png)
+<table>
+<tr>
+<td align="center">
+<img src="Hardware/3D/3D-PCB-Front-View.png" width="420">
+</td>
+<td align="center">
+<img src="Hardware/3D/3D-PCB-Back-View.png" width="420">
+</td>
+</tr>
+<tr>
+<td align="center"><b>Front View</b></td>
+<td align="center"><b>Back View</b></td>
+</tr>
+</table>
 
-## Back View
-
-![3D PCB Back View](Hardware/3D/3D-PCB-Back-View.png)
-
----
-
-# 🛠️ Hardware Prototype
-
-The final circuit was assembled and tested as a working hardware prototype.
-
-The prototype demonstrates the complete integration of the temperature sensor, controller, indicators, buzzer, and regulated power supply.
-
-## Prototype View 1
-
-![Hardware Prototype View 1](Prototype/Hardware-Prototype-view1.jpg)
-
-## Prototype View 2
-
-![Hardware Prototype View 2](Prototype/Hardware-Prototype-view2.jpg)
-
-## Prototype View 3
-
-![Hardware Prototype View 3](Prototype/Hardware-Prototype-view3.jpg)
+</div>
 
 ---
 
@@ -239,18 +188,18 @@ The prototype demonstrates the complete integration of the temperature sensor, c
 
 The firmware is developed using the **Arduino IDE**.
 
-### Programming Platform
+| Parameter          | Details                  |
+| ------------------ | ------------------------ |
+| Microcontroller    | Arduino Nano             |
+| Temperature Sensor | DS18B20                  |
+| Programming        | Embedded C / Arduino C++ |
+| IDE                | Arduino IDE              |
 
-* **Microcontroller:** Arduino Nano
-* **Programming Language:** Embedded C / Arduino C++
-* **Development Environment:** Arduino IDE
-* **Temperature Sensor:** DS18B20
+### Firmware Functions
 
-### Main Firmware Functions
-
-* Initialize temperature sensor
+* Initialize the DS18B20 sensor
 * Read temperature data
-* Compare temperature with threshold values
+* Compare temperature with predefined thresholds
 * Control Blue LED
 * Control Yellow LED
 * Control Red LED
@@ -261,40 +210,24 @@ The firmware is developed using the **Arduino IDE**.
 
 # 🔬 Temperature Detection Logic
 
-The firmware uses three temperature ranges:
+### 🧊 Cool
 
-### 🧊 Cool Condition
+**Temperature < 25°C**
 
-```text
-Temperature < 25°C
-```
+🔵 **Blue LED → ON**
 
-**Blue LED → ON**
+### 🌡️ Medium
 
----
+**25°C ≤ Temperature ≤ 35°C**
 
-### 🌡️ Medium Condition
+🟡 **Yellow LED → ON**
 
-```text
-25°C ≤ Temperature ≤ 35°C
-```
+### 🔥 Hot
 
-**Yellow LED → ON**
+**Temperature > 35°C**
 
----
-
-### 🔥 Hot Condition
-
-```text
-Temperature > 35°C
-```
-
-**Red LED → ON
-Buzzer → ON
-
-````
-
-This provides an easy-to-understand visual and audible indication of the temperature condition.
+🔴 **Red LED → ON**
+🔊 **Buzzer → ON**
 
 ---
 
@@ -328,46 +261,28 @@ Temperature-Monitoring-Alert-System/
 │   └── [Arduino source code]
 │
 └── README.md
-````
+```
 
 ---
 
 # 🚀 Key Features
 
 * ✅ Real-time temperature monitoring
-* ✅ Digital temperature sensing using DS18B20
+* ✅ DS18B20 digital temperature sensing
 * ✅ Arduino Nano based control
 * ✅ Three-level temperature indication
-* ✅ Blue / Yellow / Red LED status
+* ✅ Blue / Yellow / Red LED indication
 * ✅ High-temperature buzzer alert
 * ✅ Regulated 5V power supply
 * ✅ Custom PCB design
-* ✅ 2D PCB layout
-* ✅ Top and bottom PCB layers
+* ✅ PCB 2D layout
+* ✅ PCB top and bottom layers
 * ✅ 3D PCB visualization
 * ✅ Working hardware prototype
 
 ---
 
-# 🧪 Testing
-
-The system can be tested by exposing the DS18B20 sensor to different temperature conditions.
-
-| Test Condition                    | Expected Result        |
-| --------------------------------- | ---------------------- |
-| Temperature below 25°C            | Blue LED ON            |
-| Temperature between 25°C and 35°C | Yellow LED ON          |
-| Temperature above 35°C            | Red LED ON + Buzzer ON |
-
-The hardware should be tested under different temperature conditions to verify the correct operation of all three temperature ranges.
-
----
-
 # 🔮 Future Improvements
-
-The current system provides local temperature monitoring and alerting. It can be extended into a more advanced IoT-based monitoring platform.
-
-Possible improvements include:
 
 * 📱 Mobile application monitoring
 * 🌐 Wi-Fi / IoT connectivity
@@ -381,51 +296,16 @@ Possible improvements include:
 
 ---
 
-# 🎓 Applications
-
-This system can be adapted for:
-
-* Electronic equipment temperature monitoring
-* Laboratory environments
-* Server and control panels
-* Industrial equipment
-* Battery and power supply monitoring
-* Home automation
-* Storage environments
-* Embedded safety systems
-
----
-
-# 📚 Technologies Used
-
-| Category          | Technology                  |
-| ----------------- | --------------------------- |
-| Microcontroller   | Arduino Nano                |
-| Sensor            | DS18B20                     |
-| Programming       | Embedded C / Arduino        |
-| IDE               | Arduino IDE                 |
-| PCB Design        | EasyEDA                     |
-| PCB Visualization | EasyEDA 3D                  |
-| Prototyping       | Electronic Hardware         |
-| Power Supply      | DC Buck / Voltage Regulator |
-
----
-
 # 👨‍💻 Author
 
 **Lakshmi Pavan Kalyan Imandi**
 
 Electronics & Communication Engineering Student
+
 Interested in **Embedded Systems, Robotics, PCB Design and Electronics**
 
 ---
 
-# ⭐ Project
+## ⭐ Support
 
-If you find this project useful or interesting, consider giving the repository a **⭐ Star** on GitHub.
-
----
-
-## 📌 Project Summary
-
-> **Temperature Monitoring & Alert System** is an Arduino Nano based embedded system that monitors temperature using a DS18B20 digital sensor and provides three-level visual indication through Blue, Yellow, and Red LEDs, with an audible buzzer alert for high-temperature conditions. The project also includes a custom PCB design, 2D and 3D PCB views, circuit documentation, and a working hardware prototype.
+If you find this project useful, consider giving the repository a **⭐ Star** on GitHub.
